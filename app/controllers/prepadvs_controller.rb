@@ -1,0 +1,2 @@
+class PrepadvsController < ApplicationController
+end

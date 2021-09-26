@@ -1,0 +1,9 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  phrasal: one
+  user: one
+
+two:
+  phrasal: two
+  user: two

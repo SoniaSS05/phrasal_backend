@@ -1,0 +1,2 @@
+class MeaningsController < ApplicationController
+end

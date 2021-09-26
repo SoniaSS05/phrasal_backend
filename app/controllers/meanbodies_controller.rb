@@ -1,0 +1,2 @@
+class MeanbodiesController < ApplicationController
+end

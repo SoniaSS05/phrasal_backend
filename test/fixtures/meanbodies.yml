@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  synonyms: MyString
+  anthonyms: MyString
+  example: MyString
+  meaning: one
+
+two:
+  synonyms: MyString
+  anthonyms: MyString
+  example: MyString
+  meaning: two
