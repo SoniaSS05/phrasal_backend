@@ -10,16 +10,21 @@
 require 'json'
 require 'rest-client'
 
+Meanbody.delete_all
+Meaning.delete_all
 Phrasal.delete_all
+Phrase.delete_all
 Verb.delete_all
 Prepadv.delete_all
+User.delete_all
+
 
 
 somephrasalverbs = ['get%20across', 'get%20ahead', 'get%20over', 'get%20at',
-                    'come%20across',  'come%20on', 'come%20back', 'come%20before',
+                    'come%20across',  'come%20on', 'come%20back', 'come%20up',
                     'take%20out', 'take%20off', 'take%20up', 'take%20over',
                     'keep%20down', 'keep%20away', 'keep%20on', 'keep%20back',
-                    'call%20up', 'call%20off', 'call%20forth', 'call%20away']
+                    'call%20up', 'call%20off', 'call%20forth', 'call%20for']
 
 someprepadv = []
 verbarray = []
@@ -135,7 +140,97 @@ phrase2 = Phrase.create!(
             answer: "take off",
             verb_id: take_id
 )
+phrase3 = Phrase.create!(
+            question: "All the priests have  __________  to their places of apostolate",
+            answer: "come back",
+            verb_id: come_id
+)
+phrase4 = Phrase.create!(
+            question: "And of course __________   working with all our other projects.",
+            answer: "keep on",
+            verb_id: keep_id
+)
+phrase5 = Phrase.create!(
+            question: "She asked if one of you guys can __________ the role.",
+            answer: "take up",
+            verb_id: take_id
+)
+phrase6 = Phrase.create!(
+            question: "He's the only one that can __________ the wedding.",
+            answer: "call off",
+            verb_id: call_id
+)
+phrase7 = Phrase.create!(
+            question: "He probably feels obligated to __________ the workload.",
+            answer: "take over",
+            verb_id: take_id
+)
+phrase8 = Phrase.create!(
+            question: "What makes it so difficult to  __________ the costs required to maintain information systems?",
+            answer: "keep down",
+            verb_id: keep_id
+)
+phrase9 = Phrase.create!(
+            question: "We  __________ numerous unexpected circumstances in our day-to-day life",
+            answer: "come across",
+            verb_id: come_id
+)
+phrase10 = Phrase.create!(
+            question: "You can rent a car to __________  the park.",
+            answer: "get at",
+            verb_id: get_id
+)
+phrase11 = Phrase.create!(
+            question: "He couldn't find a better time to __________ !",
+            answer: "call up",
+            verb_id: call_id
+)
+phrase12 = Phrase.create!(
+            question: "He asked them how their project was __________ !",
+            answer: "coming on",
+            verb_id: come_id
+)
+phrase13 = Phrase.create!(
+            question: "She could not  __________ her fear of the dark !",
+            answer: "get over",
+            verb_id: get_id
+)
+phrase14 = Phrase.create!(
+            question: "Fifty or sixty years ago, the European project did not  __________  enthusiasm from all the peoples of Europe",
+            answer: "call forth",
+            verb_id: call_id
+)
+phrase15 = Phrase.create!(
+            question: "We went to CBR and ordered a  __________ meal",
+            answer: "take out",
+            verb_id: take_id
+)
+phrase17 = Phrase.create!(
+            question: "The mountains  __________  the wind.",
+            answer: "keep back",
+            verb_id: keep_id
+)
+phrase18 = Phrase.create!(
+            question: "This is an electric device, __________ from water.",
+            answer: "keep away",
+            verb_id: keep_id
+)
+phrase18 = Phrase.create!(
+            question: "The subject at the meeting.",
+            answer: "came up",
+            verb_id: come_id
+)
+phrase19 = Phrase.create!(
+            question: "The job  __________ excellent communication and networking skills.",
+            answer: "calls for",
+            verb_id: call_id
+)
+phrase20 = Phrase.create!(
+            question: "We know that, to __________  here, one must learn English",
+            answer: "get ahead",
+            verb_id: get_id
+)
 
-
+sss = User.create!(username: "Sesonia", password_digest:"1234", email:"serrano_sonia@hotmail.com")
 
 
