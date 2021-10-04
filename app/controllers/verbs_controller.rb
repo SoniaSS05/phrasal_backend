@@ -6,7 +6,8 @@ class VerbsController < ApplicationController
 
     def phrasalverb
         verbname = find_verb
-        verbnameprepadv= Prepadv.includes(:verbs).where(verbs: {name: verbname.name})
+        #verbnameprepadv= Prepadv.includes(:verbs).where(verbs: {name: verbname.name})
+        verbnameprepadv= (Prepadv.includes(:verbs).where(verbs: {name: verbname.name})).select("phrasals.id as phrasalid, prepadvs.id as prepadvid, prepadvs.name")
         render json: verbnameprepadv
     end
 
