@@ -56,6 +56,8 @@ verbfilt.length.times do |i|
     end
     verb = Verb.create!(name: verbfilt[i])
     verbasocprep.length.times do |k|
+        puts "k"
+        puts k
         hash = Hash.new
         hash['name'] = verbasocprep[k]
         prepadv = Prepadv.find_or_create_by!(hash)
@@ -65,9 +67,28 @@ verbfilt.length.times do |i|
         lookprepadv = "prepadv_id = "+ prepadv.id.to_s
         phrasal_id_obj = Phrasal.where(lookverb && lookprepadv)
         phrasal_id = phrasal_id_obj[0].id
+        puts "verbo"
+        puts lookverb
+        puts verb.name
+        puts "preposicion"
+        puts lookprepadv
+        puts prepadv.name
+        puts "phrasal"
+        puts phrasal_id
+        lookfor = verb.name+'%20'+prepadv.name
+        puts "lookfor"
+        puts lookfor
+        url = "https://api.dictionaryapi.dev/api/v2/entries/en/" + lookfor #API with definition of Phrasal Verb
+        response = RestClient::Request.execute(method: :get, url: url)
+        result = JSON.parse response.to_str #Answer API
+
+
+
         if((result[0]['meanings'][0]['definitions'].length >= 3))
             defmean0 = result[0]['meanings'][0]['definitions'][0]['definition']
             meaning0 = Meaning.create!(definition: defmean0,  phrasal_id: phrasal_id) 
+            puts "meaning 0"
+            puts meaning0.definition
             meanexample0 = result[0]['meanings'][0]['definitions'][0]['example']
             meansynonyms0 = result[0]['meanings'][0]['definitions'][0]['synonyms']
             meananthonyms0 = result[0]['meanings'][0]['definitions'][0]['antonyms']
@@ -76,6 +97,8 @@ verbfilt.length.times do |i|
 
             defmean1 = result[0]['meanings'][0]['definitions'][1]['definition']
             meaning1 = Meaning.create!(definition: defmean1,  phrasal_id: phrasal_id) 
+            puts "meaning 1"
+            puts meaning1.definition
             meanexample1 = result[0]['meanings'][0]['definitions'][1]['example']
             meansynonyms1 = result[0]['meanings'][0]['definitions'][1]['synonyms']
             meananthonyms1 = result[0]['meanings'][0]['definitions'][1]['antonyms']
@@ -84,6 +107,9 @@ verbfilt.length.times do |i|
      
             defmean2 = result[0]['meanings'][0]['definitions'][2]['definition']
             meaning2 = Meaning.create!(definition: defmean2, phrasal_id: phrasal_id) 
+            puts "meaning 2"
+            puts meaning2.definition
+
             meanexample2 = result[0]['meanings'][0]['definitions'][2]['example']
             meansynonyms2 = result[0]['meanings'][0]['definitions'][2]['synonyms']
             meananthonyms2 = result[0]['meanings'][0]['definitions'][2]['antonyms']
@@ -94,6 +120,8 @@ verbfilt.length.times do |i|
 
             defmean0 = result[0]['meanings'][0]['definitions'][0]['definition']
             meaning0 = Meaning.create!(definition: defmean0,  phrasal_id: phrasal_id)
+            puts "meaning 0"
+            puts meaning0.definition
             meanexample0 = result[0]['meanings'][0]['definitions'][0]['example']
             meansynonyms0 = result[0]['meanings'][0]['definitions'][0]['synonyms']
             meananthonyms0 = result[0]['meanings'][0]['definitions'][0]['antonyms']
@@ -103,6 +131,8 @@ verbfilt.length.times do |i|
           
             defmean1 = result[0]['meanings'][0]['definitions'][1]['definition']
             meaning1 = Meaning.create!(definition: defmean1,  phrasal_id: phrasal_id)
+            puts "meaning 1"
+            puts meaning1.definition
             meanexample1 = result[0]['meanings'][0]['definitions'][1]['example']
             meansynonyms1 = result[0]['meanings'][0]['definitions'][1]['synonyms']
             meananthonyms1 = result[0]['meanings'][0]['definitions'][1]['antonyms']
@@ -112,6 +142,8 @@ verbfilt.length.times do |i|
             else
                 defmean0 = result[0]['meanings'][0]['definitions'][0]['definition']
                 meaning0 = Meaning.create!(definition: defmean0,  phrasal_id: phrasal_id)
+                puts "meaning 0"
+                puts meaning0.definition
                 meanexample0 = result[0]['meanings'][0]['definitions'][0]['example']
                 meansynonyms0 = result[0]['meanings'][0]['definitions'][0]['synonyms']
                 meananthonyms0 = result[0]['meanings'][0]['definitions'][0]['antonyms']
