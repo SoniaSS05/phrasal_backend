@@ -6,7 +6,12 @@ Rails.application.routes.draw do
   resources :prepadvs
   resources :verbs
   
-  get '/verbs/:id/prepadvs', to: 'verbs#phrasalverb'
+  get '/verbs/:id/', to: 'verbs#phrasalverb'
+
+post '/users/:id/add_phrasal', to: 'users#add_phrasal'
+
+
+  patch '/users/1/:id', to: 'users#upd_user_phrasal'
 
 get '/phrasals/', to: 'phrasals#index'
 
