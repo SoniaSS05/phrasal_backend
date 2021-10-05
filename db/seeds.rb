@@ -63,9 +63,9 @@ verbfilt.length.times do |i|
         prepadv = Prepadv.find_or_create_by!(hash)
         verb.prepadvs << prepadv
         
-        lookverb = "verb_id = " + verb.id.to_s
-        lookprepadv = "prepadv_id = "+ prepadv.id.to_s
-        phrasal_id_obj = Phrasal.where(lookverb && lookprepadv)
+        lookverb = verb.id
+        lookprepadv = prepadv.id
+        phrasal_id_obj = Phrasal.where(verb_id: lookverb, prepadv_id: lookprepadv)
         phrasal_id = phrasal_id_obj[0].id
         puts "verbo"
         puts lookverb
