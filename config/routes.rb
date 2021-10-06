@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   post '/users/:id/:phrasal_id', to: 'users#add_phrasal'
 
     
-get '/phrasals/', to: 'phrasals#index'
+  get '/phrasals/', to: 'phrasals#index'
 
 end
 

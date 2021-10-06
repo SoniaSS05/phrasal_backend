@@ -13,7 +13,5 @@ class MeaningsController < ApplicationController
 
     def where_meaning
         Meaning.where(phrasal_id: params[:id])
-      
-   
     end
 end
