@@ -38,7 +38,7 @@ class UsersController < ApplicationController
     def show_users_phrasal
        user = find_user
        render json: user, include: :phrasals
-       #render json: user, include: [:phrasals, :verbs]
+      
     end
 
 
