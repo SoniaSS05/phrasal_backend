@@ -4,10 +4,10 @@ class UsersController < ApplicationController
         render json: users
     end
 
-    def show
-        users = where_meaning
-        render json: meanings
-    end
+    #def show
+    #   users = where_meaning
+    #    render json: meanings
+    #end
 
     def update
         user = find_user
@@ -24,7 +24,6 @@ class UsersController < ApplicationController
     def add_phrasal  
         user = User.find(params[:id])
         phrasal = Phrasal.find(params[:phrasal_id])
-      
         user.phrasals << phrasal
         render json: user, include: :phrasals
     end
@@ -36,6 +35,12 @@ class UsersController < ApplicationController
     #    render json: user, include: :verbs
     #end
  
+    def show_users_phrasal
+       user = find_user
+       render json: user, include: :phrasals
+       #render json: user, include: [:phrasals, :verbs]
+    end
+
 
     private
 
