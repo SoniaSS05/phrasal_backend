@@ -21,12 +21,21 @@ class UsersController < ApplicationController
         userupd= (User.includes(:phrasals).where(users: {id:user.id})).update(user_params)
     end
 
-    def add_phrasal
+    def add_phrasal  
         user = User.find(params[:id])
         phrasal = Phrasal.find(params[:phrasal_id])
+      
         user.phrasals << phrasal
         render json: user, include: :phrasals
     end
+
+    #def add_verb 
+    #    user = User.find(params[:id])
+    #    verb = Verb.find(params[:verb_id]) 
+    #    user.verbs << verb
+    #    render json: user, include: :verbs
+    #end
+ 
 
     private
 

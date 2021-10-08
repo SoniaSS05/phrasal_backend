@@ -7,9 +7,9 @@ Rails.application.routes.draw do
   resources :verbs
   
   get '/verbs/:id/prepadvs', to: 'verbs#phrasalverb'
-
   post '/users/:id/:phrasal_id', to: 'users#add_phrasal'
 
+  #post 'users/:id/:verb_id', to: 'users#add_verb'
     
   get '/phrasals/', to: 'phrasals#index'
 
