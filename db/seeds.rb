@@ -248,7 +248,7 @@ phrase18 = Phrase.create!(
             verb_id: keep_id
 )
 phrase18 = Phrase.create!(
-            question: "The subject at the meeting.",
+            question: "The subject _________ at the meeting.",
             answer: "came up",
             verb_id: come_id
 )

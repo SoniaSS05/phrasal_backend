@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    def index
+    def index 
         users = User.all
         render json: users
     end
@@ -15,11 +15,11 @@ class UsersController < ApplicationController
         render json: user
     end
 
-
     def upd_user_phrasal
         user = find_user
         userupd= (User.includes(:phrasals).where(users: {id:user.id})).update(user_params)
     end
+
 
     def add_phrasal  
         user = User.find(params[:id])
@@ -28,17 +28,26 @@ class UsersController < ApplicationController
         render json: user, include: :phrasals
     end
 
-    #def add_verb 
-    #    user = User.find(params[:id])
-    #    verb = Verb.find(params[:verb_id]) 
-    #    user.verbs << verb
-    #    render json: user, include: :verbs
-    #end
+    #Trabajando en esta
+    def add_verb 
+        user = find_user
+        verb = Verb.find(params[:verb_id])
+        rate = params[:rate].to_f
+        user.verbs << verb
+        (User.where(id: user.id).first.joins(:verbs).where(id: verb.id)).update(user_params_verbs)
+        #userupdrate= ((User.includes(:verbs).where(users: {id:user.id})).where(verbs: {id:verb.id})).update(user_params_verbs)
+        render json: user, include: :verbs
+    end
  
     def show_users_phrasal
        user = find_user
        render json: user, include: :phrasals
-      
+    end
+
+
+    def show_users_verb
+        user = find_user
+        render json: user, include: :verbs
     end
 
 
@@ -49,9 +58,13 @@ class UsersController < ApplicationController
     end
 
     
-
     def user_params
         params.require(:users).permit(:phrasals)
     end
+
+    def user_params_verbs
+        params.permit(:successverbs [:rate])
+    end
+    
 
 end
