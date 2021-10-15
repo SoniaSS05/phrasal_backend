@@ -21,4 +21,15 @@ Things you may want to cover:
 
 * Deployment instructions
 
-* ...
+Objective:
+
+-- Through the application the users will learn the meaning of Phrasal Verbs
+ in English, keeping the list of Phrasal Verbs that users have already learned.
+
+MVP ASAP:
+
+As a user, I can:
+
+- Display the Phrasal Verbs of an specific verb
+- Display the meaning(s) of the Phrasal Verb
+- Take a Quiz of an specific verb according with the Phrasal Verb studied
